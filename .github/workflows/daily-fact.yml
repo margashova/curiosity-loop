@@ -1,0 +1,29 @@
+name: Daily Fact
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # 8am UTC daily — adjust to taste
+  workflow_dispatch:      # allow manual trigger from GitHub Actions UI
+
+jobs:
+  send-fact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate fact and send to Telegram
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          QUIZ_URL: ${{ secrets.QUIZ_URL }}
+        run: node telegram-bot.js

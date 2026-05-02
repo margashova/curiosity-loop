@@ -1,0 +1,67 @@
+:root {
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Canvas */
+  --cream:  #FAF7F2;
+  --cream2: #F3EDE3;
+  --cream3: #EAE0D2;
+
+  /* Primary action */
+  --terra:       #C4603A;
+  --terra-light: #F0D5C8;
+  --terra-faint: #FBF0EB;
+
+  --blush: #D4846A;
+
+  /* Science / correct */
+  --sage:       #7A8C6E;
+  --sage-light: #DDE6D5;
+  --sage-faint: #F2F6EE;
+
+  /* Culture */
+  --amber:       #C4933A;
+  --amber-light: #F5E4C0;
+  --amber-faint: #FFFBF0;
+
+  /* Design */
+  --plum:       #7B5EA7;
+  --plum-light: #E4D8F5;
+  --plum-faint: #F5F0FF;
+
+  /* Text */
+  --ink:  #2D2318;
+  --ink2: #5C4A36;
+  --ink3: #9C8470;
+  --ink4: #C4B4A0;
+
+  /* Borders */
+  --border:  #E0D4C4;
+  --border2: #D0C0AC;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: var(--font-sans);
+}
