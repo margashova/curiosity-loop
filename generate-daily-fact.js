@@ -87,7 +87,10 @@ export async function run() {
     ],
   })
 
-  const raw = message.content[0].text.trim()
+  let raw = message.content[0].text.trim()
+  // Strip markdown code fences Claude occasionally adds despite instructions
+  const fenceMatch = raw.match(/```(?:json)?\s*([\s\S]*?)\s*```/)
+  if (fenceMatch) raw = fenceMatch[1]
   const parsed = JSON.parse(raw)
 
   const { fact_text, questions } = parsed
